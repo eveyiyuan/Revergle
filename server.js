@@ -90,7 +90,7 @@ http.createServer(function(request, response){
         	}
         	else {
         		for(i=0; i<docs.length; i++){
-        			toReturn += docs[i].title.toString()+"\n";
+        			toReturn += docs[i].title.toString()+"\n"+docs[i].url.toString()+"\n";
         		}
         		//toReturn = docs.toString();
         	}
