@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<title>Revergle</title>
+		<script src="jquery.min.js"></script>
+		<script>
+			function loadWord() {
+				console.log("in function");
+				var searchWord = $('#forme').val();
+				/*$.ajax({
+					url: "http://localhost:0808",
+					data: '{"srcWrd": searchWord}',
+					type: "POST",
+					dataType : "json",
+					success: function(){
+						//look for titles with the word here :O
+					}
+					error: function(xhr, status, errorThrown){
+						alert("Sorry, there was a prblrm");
+					}
+				}),*/
+				var url = "/" + searchWord;
+				$.get(url, function(data){
+					alert(data);
+				});
+				
+			}
+
+			$(document).keydown(function(e) {
+				if (e.which == 13) {
+					loadWord();
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<div align="center">
+			<img src = "logo.png"></img>
+		</div>
+		<div align="center">
+				<input type="text" id="forme" style="width: 500px;">
+				<button id="submit" onclick="loadWord()">Search</button>
+				<!-- <script>
+					function runScript(e){
+						if(e.keyCode == 13){
+							loadWord();
+							return false;
+						}
+					}
+				</script> -->
+		</div>
+		<div id="results">
+		</div>
+	</body>
+</html>
